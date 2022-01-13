@@ -31,13 +31,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-  
       -
-        name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:latest
-
+        run: |
+          $psversiontable 
+          write-host "Hello World"
+          docker run --name ws2022 -d mcr.microsoft.com/windows/servercore:ltsc2022
